@@ -6,6 +6,8 @@ const CoffeeBarContext = createContext();
 const CoffeeBarProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState({});
+  const [product, setProduct] = useState({});
+  const [modal, setModal] = useState(false);
 
   const fetchCategories = async () => {
     const { data } = await axios("/api/categories");
@@ -25,9 +27,26 @@ const CoffeeBarProvider = ({ children }) => {
     setCurrentCategory(category[0]);
   };
 
+  const handleSetProduct = (product) => {
+    setProduct(product);
+  };
+
+  const handleChangeModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <CoffeeBarContext.Provider
-      value={{ categories, handleClickCategory, currentCategory }}
+      value={{
+        categories,
+        handleClickCategory,
+        currentCategory,
+        product,
+        handleSetProduct,
+        modal,
+        handleChangeModal
+       
+      }}
     >
       {children}
     </CoffeeBarContext.Provider>
