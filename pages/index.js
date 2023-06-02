@@ -1,9 +1,11 @@
 import Image from 'next/image'
-
+import Layout from '@/layout/Layout'
 
 
 export default function Home() {
   return (
-   <h1>Coffee Bar</h1>
+   <Layout>
+    <h1>Init</h1>
+   </Layout>
   )
 }
