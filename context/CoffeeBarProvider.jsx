@@ -8,6 +8,7 @@ const CoffeeBarProvider = ({ children }) => {
   const [currentCategory, setCurrentCategory] = useState({});
   const [product, setProduct] = useState({});
   const [modal, setModal] = useState(false);
+  const [order, setOrder] = useState([]);
 
   const fetchCategories = async () => {
     const { data } = await axios("/api/categories");
@@ -35,6 +36,19 @@ const CoffeeBarProvider = ({ children }) => {
     setModal(!modal);
   };
 
+  const handleOrder = ({ categoryId, ...product }) => {
+    if (order.some((productState) => productState.id === product.id)) {
+      // Update quantity
+      const updatedOrder = order.map((productState) =>
+        productState.id === product.id ? product : productState
+      );
+      setOrder(updatedOrder);
+    } else {
+      setOrder([...order, product]);
+    }
+    setModal(false);
+  };
+
   return (
     <CoffeeBarContext.Provider
       value={{
@@ -44,8 +58,9 @@ const CoffeeBarProvider = ({ children }) => {
         product,
         handleSetProduct,
         modal,
-        handleChangeModal
-       
+        handleChangeModal,
+        handleOrder,
+        order,
       }}
     >
       {children}
