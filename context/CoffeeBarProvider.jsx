@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const CoffeeBarContext = createContext();
 
@@ -43,8 +44,10 @@ const CoffeeBarProvider = ({ children }) => {
         productState.id === product.id ? product : productState
       );
       setOrder(updatedOrder);
+      toast.success("Successfully Saved");
     } else {
       setOrder([...order, product]);
+      toast.success("Added to the Order");
     }
     setModal(false);
   };
@@ -60,7 +63,7 @@ const CoffeeBarProvider = ({ children }) => {
         modal,
         handleChangeModal,
         handleOrder,
-        order,
+        order
       }}
     >
       {children}
