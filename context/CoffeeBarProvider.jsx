@@ -80,6 +80,28 @@ const CoffeeBarProvider = ({ children }) => {
   const placeOrder = async (e) => {
     e.preventDefault();
 
+    try {
+      await axios.post("/api/orders", {
+        order,
+        name,
+        total,
+        date: Date.now().toString(),
+      });
+
+      // Reset the application
+      setCurrentCategory(categories[0]);
+      setOrder([]);
+      setName("");
+      setTotal(0);
+
+      toast.success("Order placed successfully");
+
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -27,7 +27,7 @@ export default function Layout({ children, page }) {
   return (
     <>
       <Head>
-        <title>Coffee - {page}</title>
+        <title>CoffeeBar - {page}</title>
         <meta name="description" content="Coffee Bar" />
       </Head>
 

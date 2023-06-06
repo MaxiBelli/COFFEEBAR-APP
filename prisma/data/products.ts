@@ -170,85 +170,85 @@ const products = [
   {
     name: "Chocolate Cookies Pack",
     price: 29.9,
-    image: "cookies_01",
+    image: "cookie_01",
     categoryId: 6
   },
   {
     name: "Chocolate and Oatmeal Cookies Pack",
     price: 39.9,
-    image: "cookies_02",
+    image: "cookie_02",
     categoryId: 6
   },
   {
     name: "Vanilla Muffins Pack",
     price: 39.9,
-    image: "cookies_03",
+    image: "cookie_03",
     categoryId: 6
   },
   {
     name: "Oatmeal Cookies Pack (4 Cookies)",
     price: 24.9,
-    image: "cookies_04",
+    image: "cookie_04",
     categoryId: 6
   },
   {
     name: "Assorted Butter Cookies",
     price: 39.9,
-    image: "cookies_05",
+    image: "cookie_05",
     categoryId: 6
   },
   {
     name: "Fruit Flavored Cookies",
     price: 39.9,
-    image: "cookies_06",
+    image: "cookie_06",
     categoryId: 6
   },
   {
     name: "Plain Burger",
     price: 59.9,
-    image: "burgers_01",
+    image: "hamburger_01",
     categoryId: 2
   },
   {
     name: "Chicken Burger",
     price: 59.9,
-    image: "burgers_02",
+    image: "hamburger_02",
     categoryId: 2
   },
   {
     name: "Chicken and Chili Burger",
     price: 59.9,
-    image: "burgers_03",
+    image: "hamburger_03",
     categoryId: 2
   },
   {
     name: "Cheese and Pickle Burger",
     price: 59.9,
-    image: "burgers_04",
+    image: "hamburger_04",
     categoryId: 2
   },
   {
     name: "Quarter Pounder Burger",
     price: 59.9,
-    image: "burgers_05",
+    image: "hamburger_05",
     categoryId: 2
   },
   {
     name: "Double Cheese Burger",
     price: 69.9,
-    image: "burgers_06",
+    image: "hamburger_06",
     categoryId: 2
   },
   {
     name: "Special Hot Dog",
     price: 49.9,
-    image: "burgers_07",
+    image: "hamburger_07",
     categoryId: 2
   },
   {
     name: "2 Hot Dogs Pack",
     price: 69.9,
-    image: "burgers_08",
+    image: "hamburger_08",
     categoryId: 2
   },
   {
@@ -290,67 +290,67 @@ const products = [
   {
     name: "Spicy Pizza with Double Cheese",
     price: 69.9,
-    image: "pizzas_01",
+    image: "pizza_01",
     categoryId: 3
   },
   {
     name: "Ham and Cheese Pizza",
     price: 69.9,
-    image: "pizzas_02",
+    image: "pizza_02",
     categoryId: 3
   },
   {
     name: "Double Cheese Pizza",
     price: 69.9,
-    image: "pizzas_03",
+    image: "pizza_03",
     categoryId: 3
   },
   {
     name: "Special House Pizza",
     price: 69.9,
-    image: "pizzas_04",
+    image: "pizza_04",
     categoryId: 3
   },
   {
     name: "Chorizo Pizza",
     price: 69.9,
-    image: "pizzas_05",
+    image: "pizza_05",
     categoryId: 3
   },
   {
     name: "Hawaiian Pizza",
     price: 69.9,
-    image: "pizzas_06",
+    image: "pizza_06",
     categoryId: 3
   },
   {
     name: "Bacon Pizza",
     price: 69.9,
-    image: "pizzas_07",
+    image: "pizza_07",
     categoryId: 3
   },
   {
     name: "Vegetable and Cheese Pizza",
     price: 69.9,
-    image: "pizzas_08",
+    image: "pizza_08",
     categoryId: 3
   },
   {
     name: "Pepperoni and Cheese Pizza",
     price: 69.9,
-    image: "pizzas_09",
+    image: "pizza_09",
     categoryId: 3
   },
   {
     name: "Olive and Cheese Pizza",
     price: 69.9,
-    image: "pizzas_10",
+    image: "pizza_10",
     categoryId: 3
   },
   {
     name: "Cheese, Ham, and Mushroom Pizza",
     price: 69.9,
-    image: "pizzas_11",
+    image: "pizza_11",
     categoryId: 3
   }
 ];
