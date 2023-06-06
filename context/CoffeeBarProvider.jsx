@@ -52,6 +52,17 @@ const CoffeeBarProvider = ({ children }) => {
     setModal(false);
   };
 
+  const handleEditQuantities = (id) => {
+    const productUpdate = order.filter((product) => product.id === id);
+    setProduct(productUpdate[0]);
+    setModal(!modal);
+  };
+
+  const handleRemoveProduct = (id) => {
+    const updatedOrder = order.filter((product) => product.id !== id);
+    setOrder(updatedOrder);
+  };
+
   return (
     <CoffeeBarContext.Provider
       value={{
@@ -63,7 +74,10 @@ const CoffeeBarProvider = ({ children }) => {
         modal,
         handleChangeModal,
         handleOrder,
-        order
+        order,
+        handleEditQuantities,
+        handleRemoveProduct
+
       }}
     >
       {children}
