@@ -4,19 +4,19 @@ import useCoffeeBar from "@/hooks/useCoffeeBar";
 import { formatMoney } from "../helpers";
 
 const ProductModal = () => {
-  const { product, handleChangeModal, handleOrder, order } = useCoffeeBar();
+  const { product, handleChangeModal, handleOrderItems, orderItems } = useCoffeeBar();
   const [quantity, setQuantity] = useState(1);
   const [editing, setEditing] = useState(false);
 
   useEffect(() => {
-    if (order.some((orderState) => orderState.id === product.id)) {
-      const editedProduct = order.find(
-        (orderState) => orderState.id === product.id
+    if (orderItems.some((orderItemsState) => orderItemsState.id === product.id)) {
+      const editedProduct = orderItems.find(
+        (orderItemsState) => orderItemsState.id === product.id
       );
       setEditing(true);
       setQuantity(editedProduct.quantity);
     }
-  }, [product, order]);
+  }, [product, orderItems]);
 
   return (
     <div className="md:flex gap-10">
@@ -106,7 +106,7 @@ const ProductModal = () => {
         <button
           type="button"
           className="bg-indigo-600 hover:bg-indigo-800 px-5 py-2 mt-5 text-white font-bold uppercase rounded"
-          onClick={() => handleOrder({ ...product, quantity })}
+          onClick={() => handleOrderItems({ ...product, quantity })}
         >
           {editing ? "Save Changes" : "Add to Cart"}
         </button>

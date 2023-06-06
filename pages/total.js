@@ -4,22 +4,22 @@ import useCoffeeBar from "@/hooks/useCoffeeBar";
 import { formatMoney } from "../helpers";
 
 export default function Total() {
-  const { order, name, setName, placeOrder , total} = useCoffeeBar();
+  const { orderItems, name, setName, placeOrderItems , total} = useCoffeeBar();
 
   const checkOrder = useCallback(() => {
-    return order.length === 0 || name === "" || name.length < 3;
-  }, [order, name]);
+    return orderItems.length === 0 || name === "" || name.length < 3;
+  }, [orderItems, name]);
 
   useEffect(() => {
     checkOrder();
-  }, [order, checkOrder]);
+  }, [orderItems, checkOrder]);
 
   return (
     <Layout page="Total and Confirm Order">
       <h1 className="text-4xl font-black">Total and Confirm Order</h1>
       <p className="text-2xl my-10">Confirm Your Order Below</p>
 
-      <form onSubmit={placeOrder}>
+      <form onSubmit={placeOrderItems}>
         <div>
           <label
             htmlFor="name"

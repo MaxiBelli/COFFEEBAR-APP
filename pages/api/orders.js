@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       data: {
         name: req.body.name,
         total: req.body.total,
-        orderItems: req.body.items,
+        orderItems: req.body.orderItems,
         date: req.body.date,
       },
     });

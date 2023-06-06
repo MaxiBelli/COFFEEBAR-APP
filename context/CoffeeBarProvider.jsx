@@ -10,7 +10,7 @@ const CoffeeBarProvider = ({ children }) => {
   const [currentCategory, setCurrentCategory] = useState({});
   const [product, setProduct] = useState({});
   const [modal, setModal] = useState(false);
-  const [order, setOrder] = useState([]);
+  const [orderItems, setOrderItems] = useState([]);
   const [name, setName] = useState("");
   const [total, setTotal] = useState(0);
 
@@ -30,12 +30,12 @@ const CoffeeBarProvider = ({ children }) => {
   }, [categories]);
 
   useEffect(() => {
-    const newTotal = order.reduce(
+    const newTotal = orderItems.reduce(
       (total, product) => product.price * product.quantity + total,
       0
     );
     setTotal(newTotal);
-  }, [order]);
+  }, [orderItems]);
 
   const handleClickCategory = (id) => {
     const category = categories.filter((cat) => cat.id === id);
@@ -51,38 +51,38 @@ const CoffeeBarProvider = ({ children }) => {
     setModal(!modal);
   };
 
-  const handleOrder = ({ categoryId, ...product }) => {
-    if (order.some((productState) => productState.id === product.id)) {
+  const handleOrderItems = ({ categoryId, ...product }) => {
+    if (orderItems.some((productState) => productState.id === product.id)) {
       // Update quantity
-      const updatedOrder = order.map((productState) =>
+      const updatedOrderItems = orderItems.map((productState) =>
         productState.id === product.id ? product : productState
       );
-      setOrder(updatedOrder);
+      setOrderItems(updatedOrderItems);
       toast.success("Successfully Saved");
     } else {
-      setOrder([...order, product]);
+      setOrderItems([...orderItems, product]);
       toast.success("Added to the Order");
     }
     setModal(false);
   };
 
   const handleEditQuantities = (id) => {
-    const productUpdate = order.filter((product) => product.id === id);
+    const productUpdate = orderItems.filter((product) => product.id === id);
     setProduct(productUpdate[0]);
     setModal(!modal);
   };
 
   const handleRemoveProduct = (id) => {
-    const updatedOrder = order.filter((product) => product.id !== id);
-    setOrder(updatedOrder);
+    const updatedOrderItems = orderItems.filter((product) => product.id !== id);
+    setOrderItems(updatedOrderItems);
   };
 
-  const placeOrder = async (e) => {
+  const placeOrderItems = async (e) => {
     e.preventDefault();
 
     try {
       await axios.post("/api/orders", {
-        order,
+        orderItems,
         name,
         total,
         date: Date.now().toString(),
@@ -90,7 +90,7 @@ const CoffeeBarProvider = ({ children }) => {
 
       // Reset the application
       setCurrentCategory(categories[0]);
-      setOrder([]);
+      setOrderItems([]);
       setName("");
       setTotal(0);
 
@@ -114,13 +114,13 @@ const CoffeeBarProvider = ({ children }) => {
         handleSetProduct,
         modal,
         handleChangeModal,
-        handleOrder,
-        order,
+        handleOrderItems,
+        orderItems,
         handleEditQuantities,
         handleRemoveProduct,
         name,
         setName,
-        placeOrder,
+        placeOrderItems,
         total
       }}
     >
